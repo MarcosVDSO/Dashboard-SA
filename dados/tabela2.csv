@@ -1,0 +1,6 @@
+COUNTA de Status de Entrega,Status de Entrega,,,,,
+Perfil Micro do participante,ENTREGUE (ANTES DO PRAZO DE INICIAR A ATIVIDADE),ENTREGUE (COM ATRASO),ENTREGUE (NO PRAZO),NÃO ENTREGUE (ATIVIDADE AINDA NO PRAZO),NÃO ENTREGUE (ATIVIDADE EM ATRASO),NÃO ENTREGUE (PRAZO DA ATIVIDADE NÃO INICIOU)
+Analista Administrativo,"25,00%","8,33%","33,33%","16,67%","8,33%","8,33%"
+Consultores Adhoc,"14,29%",,"14,29%","28,57%","42,86%",
+Coordenador,"33,33%",,"33,33%",,"33,33%",
+Vice - Coordenador,"25,00%","25,00%",,"50,00%",,

@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="index.css">
-    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    
+    <title>Sistema Acadêmico</title>
+
 </head>
 <body>
     <header class="header" id="header">
@@ -15,8 +19,7 @@
               </svg>
         </button>
         <div class="logo_header">
-            <!-- <img class="icon-user" src="icon-user.png" alt="logo"> -->
-            <h4>Controle de Frequência</h4>
+            <h4>Controle de Atividades e Frequência</h4>
         </div>
         <div class="buttons_center" id="buttons_center">
             <button class="btn-icon-header" onclick="closeSidebar()">
@@ -60,16 +63,30 @@
                 <li class=item id=item5><a href="#">Administrar Disciplinas</a></li>
                 <li class=item id=item6><a href="#">Administrar Turmas</a></li>
             </ul>
-            </div>
+        </div>
     </header>
     <!-- <div tabindex="0" onclick="closeSidebar(), closeMenu()"class="content">
         <h1>marcosoajkspasjas</h1>
     </div> -->
+    <main>
+        <div class="Conteudo" id="Conteudo">
+            <div class="divGrafico1" id="divGrafico1">
+                <canvas id="Grafico1"></canvas>
+                <div class="valorPercentual" id="valorPercentual" ></div>
+            </div>
+            <div class="divGrafico2" id="divGrafico2" >
+            </div>
+            <div class="divGrafico3" id="divGrafico3" >
+                <canvas id="Grafico3"></canvas>
+            </div>
+        </div>
+    </main>
 
     
     
-    
-
-    <script src="script.js" ></script>
+    <script src="Scripts/menu.js" ></script>
+    <script src="Scripts/grafico1.js" ></script>
+    <script src="Scripts/grafico2.js" ></script>
+    <script src="Scripts/grafico3.js" ></script>
 </body>
 </html>
