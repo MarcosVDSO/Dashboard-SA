@@ -58,6 +58,11 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
                 display: true,
                 text: 'Porcentagem de Conclusão do Produto',
             },
+            tooltips: {
+                enabled: true, // Certifique-se de que as dicas de ferramentas estejam ativadas
+                mode: 'index', // ou 'nearest' dependendo do comportamento desejado
+            },
+
         },
         
     

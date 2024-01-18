@@ -11,15 +11,21 @@ function carregarDadosEExibirGraficos() {
 
 function criarConteinerEExibirGrafico(perfil, dados) {
     var containerId = perfil.toLowerCase().replace(/\s+/g, '-');
+
+
     var container = document.createElement('div');
     container.id = containerId;
-    container.classList.add('Grafico2');
     document.getElementById('divGrafico2').appendChild(container);
+
 
     var canvasId = containerId + '-chart';
     var canvas = document.createElement('canvas');
     canvas.id = canvasId;
-    container.appendChild(canvas);
+
+    var divcontainer =document.createElement('div');
+    divcontainer.classList.add('Grafico2');
+    divcontainer.appendChild(canvas);
+
     var divperfil = document.createElement('div');
     divperfil.classList.add('imagemPerfil');
     divperfil.id = 'imagemPerfil';
@@ -27,15 +33,20 @@ function criarConteinerEExibirGrafico(perfil, dados) {
     imagem.src = 'assets/imagemdoperfil.svg';  
     imagem.alt = 'imagem de Perfil'; 
     divperfil.appendChild(imagem);
+    divcontainer.appendChild(divperfil);
 
-    divperfil.appendChild(imagem);
+    container.appendChild(divcontainer);
 
-    container.appendChild(divperfil);
-  
+    var nomedoperfil = document.createElement('p');
+    nomedoperfil.classList.add('nomeDoPerfil');
+    var texto = document.createTextNode(perfil);
+    nomedoperfil.appendChild(texto);
+
+    container.appendChild(nomedoperfil);
 
     var context = canvas.getContext('2d');
     var meuGrafico = new Chart(context, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             datasets: [{
                 data: Object.values(dados),

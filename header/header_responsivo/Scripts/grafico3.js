@@ -29,13 +29,13 @@ function processarDados(Datatabela3) {
 
 
 function criarGrafico3(data) {
-    console.log(data);
+    
 
     var contexto = document.getElementById('Grafico3').getContext('2d');
     var meuGrafico = new Chart(contexto, {
         type: 'pie',
         data: {
-            labels: Object.keys(data),
+            //labels: Object.keys(data),
             datasets: [{
                 data: Object.values(data),
                 backgroundColor: [
