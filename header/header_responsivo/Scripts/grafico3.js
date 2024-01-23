@@ -29,10 +29,31 @@ function processarDados(Datatabela3) {
 
 
 function criarGrafico3(data) {
-    
 
-    var contexto = document.getElementById('Grafico3').getContext('2d');
-    var meuGrafico = new Chart(contexto, {
+    var containerGrafico3 = document.createElement('div');
+    containerGrafico3.classList.add('containerGrafico3');
+    document.getElementById('divGrafico3').appendChild(containerGrafico3);
+
+    var nomeDivGrafico3 = document.createElement('p');
+    nomeDivGrafico3.classList.add('nomeDivGrafico3');
+    nomeDivGrafico3.textContent = 'Situação das Atividades';
+    containerGrafico3.appendChild(nomeDivGrafico3);
+
+    var divContainerGrafico3 = document.createElement('div');
+    divContainerGrafico3.classList.add('divContainerGrafico3');
+
+    var canvasGrafico3 = document.createElement('canvas');
+    canvasGrafico3.classList.add('Grafico3');
+    divContainerGrafico3.appendChild(canvasGrafico3);
+
+    var divDescricaoGrafico3 = document.createElement('p');
+    divDescricaoGrafico3.classList.add('divDescricaoGrafico3');
+    divDescricaoGrafico3.textContent = '29% das atividades foram ENTREGUES (NO PRAZO)';
+    divContainerGrafico3.appendChild(divDescricaoGrafico3);
+    containerGrafico3.appendChild(divContainerGrafico3);
+
+    var contexto = canvasGrafico3.getContext('2d');
+    var meuGrafico3 = new Chart(contexto, {
         type: 'pie',
         data: {
             //labels: Object.keys(data),
@@ -60,6 +81,7 @@ function criarGrafico3(data) {
    
 
 }
+
 
 
 carregarDados();

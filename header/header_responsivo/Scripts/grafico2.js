@@ -10,42 +10,52 @@ function carregarDadosEExibirGraficos() {
 
 
 function criarConteinerEExibirGrafico(perfil, dados) {
-    var containerId = perfil.toLowerCase().replace(/\s+/g, '-');
+    var containerGrafico2Id = perfil.toLowerCase().replace(/\s+/g, '-');
+
+    var containerGrafico2 = document.createElement('div');
+    containerGrafico2.classList.add('containerGrafico2');
+
+    containerGrafico2.id = containerGrafico2Id;
+    document.getElementById('divGrafico2').appendChild(containerGrafico2);
 
 
-    var container = document.createElement('div');
-    container.id = containerId;
-    document.getElementById('divGrafico2').appendChild(container);
-
-
-    var canvasId = containerId + '-chart';
-    var canvas = document.createElement('canvas');
-    canvas.id = canvasId;
-
-    var divcontainer =document.createElement('div');
-    divcontainer.classList.add('Grafico2');
-    divcontainer.appendChild(canvas);
-
-    var divperfil = document.createElement('div');
-    divperfil.classList.add('imagemPerfil');
-    divperfil.id = 'imagemPerfil';
-    var imagem = document.createElement('img');
-    imagem.src = 'assets/imagemdoperfil.svg';  
-    imagem.alt = 'imagem de Perfil'; 
-    divperfil.appendChild(imagem);
-    divcontainer.appendChild(divperfil);
-
-    container.appendChild(divcontainer);
+    var divNomePerfilGrafico2 =document.createElement('div');
+    divNomePerfilGrafico2.classList.add('divNomePerfilGrafico2');
+    var imagemdoperfil = document.createElement('img');
+    imagemdoperfil.src = 'assets/imagemperfil.svg';  
+    imagemdoperfil.alt = 'imagem de Perfil'; 
+    imagemdoperfil.classList.add('imagemPerfil');
 
     var nomedoperfil = document.createElement('p');
     nomedoperfil.classList.add('nomeDoPerfil');
     var texto = document.createTextNode(perfil);
     nomedoperfil.appendChild(texto);
 
-    container.appendChild(nomedoperfil);
+    divNomePerfilGrafico2.appendChild(imagemdoperfil);
+    divNomePerfilGrafico2.appendChild(nomedoperfil);
 
-    var context = canvas.getContext('2d');
-    var meuGrafico = new Chart(context, {
+    
+
+    var divContainerGrafico2 =document.createElement('div');
+    divContainerGrafico2.classList.add('divContainerGrafico2');
+
+    var canvasGrafico2 = document.createElement('canvas');
+    canvasGrafico2.classList.add('Grafico2');
+
+
+    var divDescricaoGrafico2 = document.createElement('p');
+    divDescricaoGrafico2.classList.add('divDescricaoGrafico2');
+    divDescricaoGrafico2.textContent = '29% das atividades foram ENTREGUES (NO PRAZO)';
+
+    
+    divContainerGrafico2.appendChild(divDescricaoGrafico2);
+    divContainerGrafico2.appendChild(canvasGrafico2);
+    containerGrafico2.appendChild(divNomePerfilGrafico2);
+    containerGrafico2.appendChild(divContainerGrafico2);
+
+
+    var context = canvasGrafico2.getContext('2d');
+    var meuGrafico2 = new Chart(context, {
         type: 'doughnut',
         data: {
             datasets: [{

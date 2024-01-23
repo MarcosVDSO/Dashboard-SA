@@ -39,7 +39,41 @@ function processarDadosCSV(Datatabela1) {
 
 
 function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
-    var ctx = document.getElementById('Grafico1').getContext('2d');
+    var containerGrafico1= document.createElement('div');
+    containerGrafico1.classList.add('containerGrafico1');
+    document.getElementById('divGrafico1').appendChild(containerGrafico1);
+
+    var nomeDivGrafico1 = document.createElement('p');
+    nomeDivGrafico1.classList.add('nomeDivGrafico1');
+    nomeDivGrafico1.textContent = 'Conclusão do Produto';
+    containerGrafico1.appendChild(nomeDivGrafico1);
+
+    var divContainerGrafico1= document.createElement('div');
+    divContainerGrafico1.classList.add('divContainerGrafico1');
+
+    var canvasGrafico1 = document.createElement('canvas');
+    canvasGrafico1.classList.add('Grafico1');
+    divContainerGrafico1.appendChild(canvasGrafico1);
+
+    divpercentual =document.createElement('div');
+    divpercentual.classList.add('divPercentual');
+
+    var percentualDeConclusao = document.createElement('p');
+    percentualDeConclusao.classList.add('percentualDeConclusao');
+    percentualDeConclusao.textContent = '65% da atividades do produto concluídas';
+
+    var percentualDeNaoConclusao = document.createElement('p');
+    percentualDeNaoConclusao.classList.add('percentualDeNaoConclusao');
+    percentualDeNaoConclusao.textContent = '35% da atividades do produto não foram concluídas';
+
+
+    divpercentual.appendChild(percentualDeConclusao);
+    divpercentual.appendChild(percentualDeNaoConclusao);
+
+    divContainerGrafico1.appendChild(divpercentual);
+    containerGrafico1.appendChild(divContainerGrafico1);
+
+    var ctx = canvasGrafico1.getContext('2d');
     var meuGrafico = new Chart(ctx, {
         type: 'pie',
         data: {
