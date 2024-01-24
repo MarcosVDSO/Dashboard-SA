@@ -26,13 +26,13 @@ function criarConteinerEExibirGrafico(perfil, dados) {
     imagemdoperfil.alt = 'imagem de Perfil'; 
     imagemdoperfil.classList.add('imagemPerfil');
 
-    var nomedoperfil = document.createElement('p');
-    nomedoperfil.classList.add('nomeDoPerfil');
+    var nomeDoPerfilGrafico2 = document.createElement('p');
+    nomeDoPerfilGrafico2.classList.add('nomeDoPerfilGrafico2');
     var texto = document.createTextNode(perfil);
-    nomedoperfil.appendChild(texto);
+    nomeDoPerfilGrafico2.appendChild(texto);
 
     divNomePerfilGrafico2.appendChild(imagemdoperfil);
-    divNomePerfilGrafico2.appendChild(nomedoperfil);
+    divNomePerfilGrafico2.appendChild(nomeDoPerfilGrafico2);
 
     
 
