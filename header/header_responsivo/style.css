@@ -13,7 +13,7 @@
     background-color: var(--blue-primary);
     padding: 0 7%;
     height: 8vh;
-    width: 100%;
+    min-width: 100%;
     top: 0;
     /* position: fixed; */
 }
@@ -84,8 +84,8 @@
 }
 
 .icon-user {
-    height: 25px;
-    width: 25px;
+    max-height: 25px;
+    min-width: 25px;
 }
 
 .user {
@@ -140,29 +140,46 @@ main{
     align-items: center;
     justify-content: center;
     min-height: 92vh ;
-    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 
 }
 .Conteudo{
     display: flex;
     flex-direction: row;
 }
-.containerdecima{
-    margin-top: 40px;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: row;
-}
-.Containerdebaixo{
+.containerDaEsquerda, .containerDaDireita, .containerDoMeio{
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
-}
-.divmenor{
-    margin: 5px;
+    padding: 10px;
 }
 
+.Filtro{
+    background-color: var(--blue-primary);
+    min-width: 20rem;
+    max-width: 30rem;
+    max-height: 10rem;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px;
+}
 
+.textoFiltro{
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+.SelectFiltro{
+    margin: 10px;
+    min-width: 90%;
+    border-radius: 20px;
+    max-height: 2rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
 
 
 
@@ -171,7 +188,9 @@ main{
     background-color: var(--blue-primary);
     border-radius: 40px;
     padding: 20px;
-    max-width: 25rem;
+    min-width: 15rem;
+    max-width: 30rem;
+
 }
 
 .containerGrafico1{
@@ -197,6 +216,7 @@ main{
 
 .Grafico1 {
     max-width: 10rem;
+    max-height: 10rem;
     margin-right: 20px;
 }
 
@@ -211,36 +231,41 @@ main{
     margin-bottom: 30px;
 }
 
+
+
+
 .divGrafico2{
     background-color: var(--blue-primary);
     display: flex;
     flex-direction: column;
-    height: 50rem;
-    width:25rem;
+    min-height: 50rem;
+    min-width:15rem;
+    max-width:30rem;
     text-align: center;
+    box-sizing: border-box;
     border-radius: 40px;
     padding: 20px;
     
 }
 
-
 .containerGrafico2{
     display: flex;
     flex-direction: column;
     object-fit: contain;
-    
+    box-sizing: border-box;
 }
 
 .divNomePerfilGrafico2{
     display: flex;
     flex-direction: row;
     position: relative;
+    text-align: center;
 }
 
 
 .imagemPerfil {
     position: absolute;
-    width: 8rem;
+    min-width: 8rem;
     z-index: 999;
     right: 40px;
     left: 0;
@@ -249,16 +274,22 @@ main{
 }
 
 
-.nomeDoPerfil{
+.nomeDoPerfilGrafico2{
     position: absolute;
     top:20px;
-    left: 70px;
+    left: 80px;
     color: var(--white);
     border: 1px solid white;
     border-radius: 20px;
-    width: 15rem;
-    height: 2rem;
+    min-width: 11rem;
+    max-width: 25rem;
+    width: 70%;
+    min-height: 1rem;
+    max-height: 3rem;
+    word-wrap: break-word;
     border-color: white;
+    margin-right: 20px;
+    box-sizing: border-box;
     padding: 3px;
 }
 
@@ -273,11 +304,12 @@ main{
 .Grafico2{
     margin-top: 60px;
     max-width: 8rem;
+    max-height: 8rem;
     margin-right: 10px;
 
 }
 .divDescricaoGrafico2{
-    margin-top: 100px;
+    margin-top: 120px;
     text-align: center;
 }
 
@@ -289,13 +321,14 @@ main{
 
 .containerGrafico3{
     margin-top: 30px;
-    margin-right: 30px;
-
     background-color: var(--blue-primary);
-    max-width:25rem;
-    height: 15rem;
+    min-width:20rem;
+    max-width: 30rem;
+
+
     padding: 20px;
     border-radius: 40px;
+    justify-content: space-between;
 }
 .nomeDivGrafico3{
     color: white;
@@ -307,7 +340,8 @@ main{
 
 .Grafico3{
     max-width: 10rem;
-    margin-right: 10px;
+    max-height: 10rem;
+    margin-right: 2ch;
 
 }
 .divContainerGrafico3{
@@ -315,8 +349,10 @@ main{
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
     
 }
+
 
 
 
@@ -324,8 +360,8 @@ main{
 .containerGrafico4{
     margin-top: 30px;
     background-color: var(--blue-primary);
-    max-width:25rem;
-    height: 15rem;
+    min-width:20rem;
+    max-width: 30rem;
     padding: 20px;
     border-radius: 40px;
     display: flex;
@@ -337,8 +373,7 @@ main{
 
 }
 .imagemgrafico4{
-    max-width: 5rem;
-    
+    min-width: 5rem;
 }
 .divDescricaoGrafico4{
     margin-top: 20px;
@@ -348,6 +383,96 @@ main{
     margin-top: 10px;
     text-align: center;
 }
+
+
+
+
+.containerGrafico5{
+    margin-top: 30px;
+    background-color: var(--blue-primary);
+    min-width:15rem;
+    max-width: 30rem;
+    padding: 20px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+   
+}
+.imagemgrafico5{
+    min-width: 5rem;
+}
+.divDescricaoGrafico5{
+    margin-top: 20px;
+    text-align: center;
+}
+.nomeDoPerfilGrafico5{
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.divDescricaodetalhadaGrafico5{
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+
+.containerGrafico6{
+    margin-top: 30px;
+    background-color: var(--blue-primary);
+    min-width:15rem;
+    max-width:30rem;
+
+    padding: 20px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+.imagemgrafico6{
+    min-width: 5rem;
+}
+
+
+.divQuantidadeAtividades, .divQuantidadeAtividadesEntreges{
+    display: flex;
+    flex-direction: row;
+}
+
+.divDescricaoGrafico6, .divDescricaodetalhadaGrafico6{
+   padding: 10px;
+   min-width: 80%;
+}
+
+.quantidadeAtividades, .quantidadeAtividadesEntreges{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+
+
+
+.containerGrafico7{
+    margin-top: 30px;
+    background-color: var(--blue-primary);
+    min-width:20rem;
+    max-width: 30rem;
+    padding: 20px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+.imagemgrafico7{
+    min-width: 5rem;
+}
+
 
 @media screen and (max-width: 940px) {
     .buttons_center, .icons_right {
@@ -369,8 +494,8 @@ main{
         flex-direction: column;
         top: 0;
         background-color: var(--secondary-color) ;
-        height: 100%;
-        width: 65%;
+        max-height: 100%;
+        min-width: 65%;
         padding: 1rem;
         animation-duration: 1s;
         margin-left: -200vw;
