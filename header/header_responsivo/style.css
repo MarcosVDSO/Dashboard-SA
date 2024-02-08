@@ -228,7 +228,14 @@ main{
 }
 
 .percentualDeConclusao{
-    margin-bottom: 30px;
+    font-size: 3em;
+    font-weight: 700;
+    color: #0EB000;
+}
+.percentualDeNaoConclusao{
+    font-size: 3em;
+    font-weight: 700;
+    color:#D00000;
 }
 
 
@@ -353,7 +360,11 @@ main{
     
 }
 
-
+.divPorcentageGrafico3{
+    font-size: 2.5em;
+    font-weight: 800;
+    
+}
 
 
 
