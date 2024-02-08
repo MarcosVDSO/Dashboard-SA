@@ -3,13 +3,34 @@ function carregarDadosEExibirGraficos() {
     carregarDadosCSV(caminhoCSV, function(dados) {
   
         Object.keys(dados).forEach(function(perfil) {
+
+           
             criarConteinerEExibirGrafico(perfil, dados[perfil]);
         });
     });
 }
 
 
+function verificarMaiorPorcentagem(nomePerfil ,perfilDados) {
+    
+
+    var maiorPorcentagem = -1;
+    var status = "";
+    
+    for (var chave in perfilDados) {
+        if (typeof perfilDados[chave] === 'number' && perfilDados[chave] > maiorPorcentagem) {
+            maiorPorcentagem = perfilDados[chave];
+            status = chave;
+        }
+    }
+    
+    return { porcentagem: maiorPorcentagem, status: status };
+}
+
 function criarConteinerEExibirGrafico(perfil, dados) {
+
+    var maiorStatusDeEntrega = verificarMaiorPorcentagem(perfil, dados);
+
     var containerGrafico2Id = perfil.toLowerCase().replace(/\s+/g, '-');
 
     var containerGrafico2 = document.createElement('div');
@@ -45,7 +66,9 @@ function criarConteinerEExibirGrafico(perfil, dados) {
 
     var divDescricaoGrafico2 = document.createElement('p');
     divDescricaoGrafico2.classList.add('divDescricaoGrafico2');
-    divDescricaoGrafico2.textContent = '29% das atividades foram ENTREGUES (NO PRAZO)';
+
+    divDescricaoGrafico2.textContent = maiorStatusDeEntrega.porcentagem + "% das atividades foram " + maiorStatusDeEntrega.status;
+
 
     
     divContainerGrafico2.appendChild(divDescricaoGrafico2);
