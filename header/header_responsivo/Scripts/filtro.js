@@ -37,9 +37,11 @@
         enviarRequisicaoPython(selectedValue);
     });
 
+    
     function enviarRequisicaoPython(selectedValue) {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://127.0.0.1:5000/executar', true);
+        var url = 'http://127.0.0.1:5000/executar'; 
+        xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
@@ -52,7 +54,7 @@
             }
         };
     
-        var data = 'selectedValue=' + encodeURIComponent(selectedValue);
-        xhr.send(data);
+       var data = 'selectedValue=' + encodeURIComponent(selectedValue);
+       xhr.send(data);
     }
     
