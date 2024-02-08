@@ -31,8 +31,8 @@ function processarDadosCSV(Datatabela1) {
        
         dados.pop();
         var percentualNaoConclusao = (100.00 - percentualConclusao);
-
         criarGrafico1(percentualConclusao, percentualNaoConclusao);
+        
     }
 }
 
@@ -57,18 +57,27 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
 
     divpercentual =document.createElement('div');
     divpercentual.classList.add('divPercentual');
-
+    
     var percentualDeConclusao = document.createElement('p');
     percentualDeConclusao.classList.add('percentualDeConclusao');
-    percentualDeConclusao.textContent = '65% da atividades do produto concluídas';
+    percentualDeConclusao.textContent = percentualConclusao + '%';
+
+    var textoPercentualDeConclusao = document.createElement('p');
+    textoPercentualDeConclusao.classList.add('textoPercentualDeConclusao');
+    textoPercentualDeConclusao.textContent = 'da atividades do produto concluídas';
 
     var percentualDeNaoConclusao = document.createElement('p');
     percentualDeNaoConclusao.classList.add('percentualDeNaoConclusao');
-    percentualDeNaoConclusao.textContent = '35% da atividades do produto não foram concluídas';
+    percentualDeNaoConclusao.textContent = percentualNaoConclusao + '%';
 
+    var textoPercentualDeNaoConclusao = document.createElement('p');
+    textoPercentualDeNaoConclusao.classList.add('textoPercentualDeNaoConclusao');
+    textoPercentualDeNaoConclusao.textContent = 'da atividades do produto não foram concluídas';
 
     divpercentual.appendChild(percentualDeConclusao);
+    divpercentual.appendChild(textoPercentualDeConclusao);
     divpercentual.appendChild(percentualDeNaoConclusao);
+    divpercentual.appendChild(textoPercentualDeNaoConclusao);
 
     divContainerGrafico1.appendChild(divpercentual);
     containerGrafico1.appendChild(divContainerGrafico1);
@@ -80,8 +89,8 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
             datasets: [{
                 data: [percentualConclusao, percentualNaoConclusao],
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.7)',
-                    'rgba(255, 99, 132, 0.7)',
+                    '#0EB000',
+                    '#D00000',
                 ],
             }],
         },
@@ -102,22 +111,25 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
     
     });
 
-    if (percentualConclusao !== 0 || percentualNaoConclusao !== 0) {
-        var containerRotulos = document.getElementById('valorPercentual');
-        containerRotulos.innerHTML = '';
+    if (percentualConclusao == 0 || percentualNaoConclusao == 0){
 
-        if (percentualConclusao !== 0) {
-            var rotuloConclusao = document.createElement('div');
-            rotuloConclusao.textContent = `${percentualConclusao}%`;
-            containerRotulos.appendChild(rotuloConclusao);
+        if (percentualConclusao == 0) {
+            divpercentual.innerHTML = '';
+            divpercentual.appendChild(percentualDeNaoConclusao);
+            divpercentual.appendChild(textoPercentualDeNaoConclusao);
+
         }
 
-        if (percentualNaoConclusao !== 0) {
-            var rotuloNaoConclusao = document.createElement('div');
-            rotuloNaoConclusao.textContent = `${percentualNaoConclusao}%`;
-            containerRotulos.appendChild(rotuloNaoConclusao);
+        if (percentualNaoConclusao == 0) {
+            divpercentual.innerHTML = '';
+            divpercentual.appendChild(percentualDeConclusao);
+            divpercentual.appendChild(textoPercentualDeConclusao);
+
+
         }
     }
+
+    
 
 }
 
