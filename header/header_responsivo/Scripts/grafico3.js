@@ -11,24 +11,31 @@ function processarDados(Datatabela3) {
     const cabecalho = linhastabela[1].split(',');
     const dadostabela = {};
 
+    let maiorPorcentagem = 0;
+    let statusMaiorPorcentagem = '';
+
     for (let i = 2; i < cabecalho.length; i++) {
         const status = cabecalho[i] ? cabecalho[i].trim() : '';
-
         const valorString = linhastabela[3].split(',')[i];
-        const porcentagem = valorString ? (valorString.replace('%', '').replace('"', '').replace('"', '')) : 0;
+        const porcentagem = valorString ? parseFloat(valorString.replace('%', '').replace('"', '').replace('"', '')) : 0;
 
-      
         dadostabela[status] = porcentagem;
+
+        if (porcentagem > maiorPorcentagem) {
+            maiorPorcentagem = porcentagem;
+            statusMaiorPorcentagem = status;
+        }
     }
 
     if (Object.keys(dadostabela).length > 0){
-        criarGrafico3(dadostabela);
+        const maiorStatusDeEntrega = { status: statusMaiorPorcentagem, porcentagem: maiorPorcentagem };
+        criarGrafico3(dadostabela, maiorStatusDeEntrega);
     }
 }
 
 
 
-function criarGrafico3(data) {
+function criarGrafico3(data,maiorStatusDeEntrega) {
 
     var containerGrafico3 = document.createElement('div');
     containerGrafico3.classList.add('containerGrafico3');
@@ -46,9 +53,27 @@ function criarGrafico3(data) {
     canvasGrafico3.classList.add('Grafico3');
     divContainerGrafico3.appendChild(canvasGrafico3);
 
-    var divDescricaoGrafico3 = document.createElement('p');
+
+
+
+    
+    var divDescricaoGrafico3 = document.createElement('div');
     divDescricaoGrafico3.classList.add('divDescricaoGrafico3');
-    divDescricaoGrafico3.textContent = '29% das atividades foram ENTREGUES (NO PRAZO)';
+    var divPorcentageGrafico3 = document.createElement('p');
+    divPorcentageGrafico3.classList.add('divPorcentageGrafico3');
+
+    divPorcentageGrafico3.textContent = maiorStatusDeEntrega.porcentagem+'%'
+
+    var divStatusGrafico3=  document.createElement('p');
+    divStatusGrafico3.classList.add('divStatusGrafico3');
+
+
+    divStatusGrafico3.textContent = 'das atividades foram '+ maiorStatusDeEntrega.status;
+
+    
+
+    divDescricaoGrafico3.appendChild(divPorcentageGrafico3);
+    divDescricaoGrafico3.appendChild(divStatusGrafico3);
     divContainerGrafico3.appendChild(divDescricaoGrafico3);
     containerGrafico3.appendChild(divContainerGrafico3);
 
