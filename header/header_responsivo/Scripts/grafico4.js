@@ -1,3 +1,17 @@
+function carregarDadosEExibirGraficos() {
+    var caminhoCSV = '../../dados/tabela2.csv';
+    carregarDadosCSV(caminhoCSV, function(dados) {
+  
+        Object.keys(dados).forEach(function(perfil) {
+
+           
+            criarConteinerGrafico5(perfil, dados[perfil]);
+        });
+    });
+}
+
+
+
 var containerGrafico4 = document.createElement('div');
 containerGrafico4.classList.add('containerGrafico4');
 document.getElementById('divGrafico4').appendChild(containerGrafico4);
