@@ -1,37 +1,34 @@
 import gspread
 import pandas as pd
 
-
 client = gspread.service_account(filename='csv_update/credentials.json')
 
-planilha_nome = ''
-
 def opcao1():
-    planilha_nome = 'Planilha_0'
-    geraCsv(planilha_nome)
+    geraCsv('Planilha_0')
 
 def opcao2():
-    planilha_nome = 'Planilha_1'
-    geraCsv(planilha_nome)
+    geraCsv('Planilha_1')
 
 def opcao3():
-    planilha_nome = 'Planilha_2'
-    geraCsv(planilha_nome)
+    geraCsv('Planilha_2')
 
 def geraCsv(planilha_nome):
     planilha = client.open(planilha_nome)
 
-    nome_pagina = 'Tabela 1 usada no infografico entrega total'
+    paginas = [
+        ('Tabela 1 usada no infografico entrega total',1),
+        ('tabela 3 usada no infografico',2),
+        ('tabela2 usada no infografico',4)
+    ]
 
-    planilha_selecionada = planilha.worksheet(nome_pagina)
-
-
-    dados_completos = planilha_selecionada.get_all_records()
-
-
-    df = pd.DataFrame(dados_completos)
-
-
-    df.to_csv('dados/tabela1.csv', index=False)
+    for (nome_pagina, tabela) in paginas:
+        planilha_selecionada = planilha.worksheet(nome_pagina)
+        dados_completos = planilha_selecionada.get_all_values()
+        df = pd.DataFrame(dados_completos)
+        df.to_csv(f'dados/tabela{tabela}.csv', index=False)
+        with open(f'dados/tabela{tabela}.csv', 'r') as arquivo:
+            linhas = arquivo.readlines()[1:]
+        with open(f'dados/tabela{tabela}.csv', 'w') as arquivo:
+            arquivo.writelines(linhas)
 
     print(f"Dados da {planilha_nome} exportados para o arquivo CSV com sucesso.")
