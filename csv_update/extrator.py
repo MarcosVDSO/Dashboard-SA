@@ -4,9 +4,7 @@ import pandas as pd
 
 client = gspread.service_account(filename='csv_update/credentials.json')
 
-planilha_nome = 'Planilha_0'
-
-
+planilha_nome = ''
 
 def opcao1():
     planilha_nome = 'Planilha_0'
