@@ -18,10 +18,10 @@ def executar_codigo():
                 resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao1; print(opcao1())'])
                 return resultado
             elif selected_value == 'Produto 02':
-                resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao2; print(opcao1())'])
+                resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao2; print(opcao2())'])
                 return resultado
             elif selected_value == 'Produto 03':
-                resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao3; print(opcao1())'])
+                resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao3; print(opcao3())'])
                 return resultado
             else:
                 return "Opção inválida"

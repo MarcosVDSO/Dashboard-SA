@@ -4,8 +4,10 @@ function carregarDadosEExibirGraficos() {
   
         Object.keys(dados).forEach(function(perfil) {
 
-           
-            criarConteinerEExibirGrafico(perfil, dados[perfil]);
+            if (perfil.trim() !== '') { 
+                
+                criarConteinerEExibirGrafico(perfil, dados[perfil]);
+            }
         });
     });
 }
@@ -120,7 +122,7 @@ function carregarDadosCSV(caminho, callback) {
                 var perfil = valores[0];
 
                 dados[perfil] = {};
-                for (var j = 1; j < cabecalho.length; j++) {
+                for (var j = 1; j < valores.length; j++) {
                     dados[perfil][cabecalho[j]] = parseFloat(valores[j].replace('%', '').replace('"', ''));
                 }
             }

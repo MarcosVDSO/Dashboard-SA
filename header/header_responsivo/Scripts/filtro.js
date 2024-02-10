@@ -30,13 +30,26 @@
     filtroDiv.appendChild(textoFiltro);
 
     filtroDiv.appendChild(selectBox);
-
+    var selectBox = document.getElementById('produtoSelect');
 
     selectBox.addEventListener('change', function() {
         var selectedValue = selectBox.value;
-        enviarRequisicaoPython(selectedValue);
+
+        if (selectedValue !== "Selecione um produto") {
+            enviarRequisicaoPython(selectedValue);
+        }
     });
 
+  
+    window.onload = function() {
+        var selectedProduct = localStorage.getItem('selectedProduct');
+        if (selectedProduct) {
+            selectBox.value = selectedProduct;
+        }
+    };
+    window.onbeforeunload = function() {
+        localStorage.setItem('selectedProduct', selectBox.value);
+    };
     
     function enviarRequisicaoPython(selectedValue) {
         var xhr = new XMLHttpRequest();

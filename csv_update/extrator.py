@@ -4,21 +4,23 @@ import pandas as pd
 client = gspread.service_account(filename='csv_update/credentials.json')
 
 def opcao1():
-    geraCsv('Planilha_0')
+    geraCsv('Produto_1')
 
 def opcao2():
-    geraCsv('Planilha_1')
+    geraCsv('Produto_2')
 
 def opcao3():
-    geraCsv('Planilha_2')
+    geraCsv('Produto_3')
 
 def geraCsv(planilha_nome):
     planilha = client.open(planilha_nome)
 
     paginas = [
-        ('Tabela 1 usada no infografico entrega total',1),
-        ('tabela 3 usada no infografico',2),
-        ('tabela2 usada no infografico',4)
+        ('tabela 1',1),
+        ('tabela 2',2),
+        ('tabela 3',3),
+        ('tabela 4',4),
+        ('tabela 5',5)
     ]
 
     for (nome_pagina, tabela) in paginas:
