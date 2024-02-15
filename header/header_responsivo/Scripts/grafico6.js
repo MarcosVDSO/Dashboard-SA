@@ -56,6 +56,11 @@ function criarConteinerGrafico6(dataGrafico6){
 }
 function criarGrafico6(totalAtividades, atividadesEntregues){
 
+    var tituloGrafico6 = document.createElement('p');
+    tituloGrafico6.classList.add('tituloGrafico6');
+    tituloGrafico6.textContent = 'Conclusão atividades do produto - Valores Absolutos';
+    
+
     var containerGrafico6 = document.createElement('div');
     containerGrafico6.classList.add('containerGrafico6');
     document.getElementById('divGrafico6').appendChild(containerGrafico6);
@@ -65,7 +70,15 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
     imagemgrafico6.alt = 'imagem'; 
     imagemgrafico6.classList.add('imagemgrafico6')
 
-    containerGrafico6.appendChild(imagemgrafico6);
+
+    containerGrafico6.appendChild(tituloGrafico6);
+
+    var containerMenorGrafico6 = document.createElement('div');
+    containerMenorGrafico6.classList.add('containerMenorGrafico6');
+    containerMenorGrafico6.appendChild(imagemgrafico6)
+
+    var containerAtividades = document.createElement('div');
+    containerAtividades.classList.add('containerAtividades');
 
 
     var divQuantidadeAtividades  = document.createElement('div');
@@ -73,13 +86,13 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
 
 
     var divQuantidadeAtividadesEntreges  = document.createElement('div');
-    divQuantidadeAtividadesEntreges.classList.add('divQuantidadeAtividades');
+    divQuantidadeAtividadesEntreges.classList.add('divQuantidadeAtividadesEntreges');
 
 
 
     var divDescricaoGrafico6 = document.createElement('p');
     divDescricaoGrafico6.classList.add('divDescricaoGrafico6');
-    divDescricaoGrafico6.textContent = 'A Quantidade de atividades do produto é:';
+    divDescricaoGrafico6.textContent = 'Quantidade total de Atividades do Produto';
 
     var quantidadeAtividades = document.createElement('p');
     quantidadeAtividades.classList.add('quantidadeAtividades');
@@ -91,7 +104,7 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
 
     var divDescricaodetalhadaGrafico6 = document.createElement('p');
     divDescricaodetalhadaGrafico6.classList.add('divDescricaodetalhadaGrafico6');
-    divDescricaodetalhadaGrafico6.textContent = 'A Quantidade de atividades entregues do produto é:';
+    divDescricaodetalhadaGrafico6.textContent = 'Quantidade de Atividades Concluídas';
 
     var quantidadeAtividadesEntreges = document.createElement('p');
     quantidadeAtividadesEntreges.classList.add('quantidadeAtividadesEntreges');
@@ -100,7 +113,9 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
     divQuantidadeAtividadesEntreges.appendChild(divDescricaodetalhadaGrafico6);
     divQuantidadeAtividadesEntreges.appendChild(quantidadeAtividadesEntreges);
 
-    containerGrafico6.appendChild(divQuantidadeAtividades);
-    containerGrafico6.appendChild(divQuantidadeAtividadesEntreges);
+    containerAtividades.appendChild(divQuantidadeAtividades);
+    containerAtividades.appendChild(divQuantidadeAtividadesEntreges);
+    containerMenorGrafico6.appendChild(containerAtividades);
+    containerGrafico6.appendChild(containerMenorGrafico6)
 }
 carregarDadosCSV();

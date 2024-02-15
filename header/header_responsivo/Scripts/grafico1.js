@@ -45,7 +45,7 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
 
     var nomeDivGrafico1 = document.createElement('p');
     nomeDivGrafico1.classList.add('nomeDivGrafico1');
-    nomeDivGrafico1.textContent = 'Conclusão do Produto';
+    nomeDivGrafico1.textContent = 'Conclusão atividades do produto - Valores Percentuais';
     containerGrafico1.appendChild(nomeDivGrafico1);
 
     var divContainerGrafico1= document.createElement('div');
@@ -64,7 +64,7 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
 
     var textoPercentualDeConclusao = document.createElement('p');
     textoPercentualDeConclusao.classList.add('textoPercentualDeConclusao');
-    textoPercentualDeConclusao.textContent = 'da atividades do produto concluídas';
+    textoPercentualDeConclusao.textContent = 'das atividades do produto concluídas';
 
     var percentualDeNaoConclusao = document.createElement('p');
     percentualDeNaoConclusao.classList.add('percentualDeNaoConclusao');
@@ -72,7 +72,7 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
 
     var textoPercentualDeNaoConclusao = document.createElement('p');
     textoPercentualDeNaoConclusao.classList.add('textoPercentualDeNaoConclusao');
-    textoPercentualDeNaoConclusao.textContent = 'da atividades do produto não foram concluídas';
+    textoPercentualDeNaoConclusao.textContent = 'das atividades do produto não foram concluídas';
 
     divpercentual.appendChild(percentualDeConclusao);
     divpercentual.appendChild(textoPercentualDeConclusao);

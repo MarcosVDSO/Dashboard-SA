@@ -68,7 +68,8 @@ function criarGrafico3(data,maiorStatusDeEntrega) {
     divStatusGrafico3.classList.add('divStatusGrafico3');
 
 
-    divStatusGrafico3.textContent = 'das atividades foram '+ maiorStatusDeEntrega.status;
+    var textoCompleto = 'das atividades foram <span class="maiorStatusDeEntrega">' + maiorStatusDeEntrega.status + '</span>';
+    divStatusGrafico3.innerHTML = textoCompleto;
 
     
 
