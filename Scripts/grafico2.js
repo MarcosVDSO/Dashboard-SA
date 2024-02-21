@@ -1,5 +1,5 @@
 function carregarDadosEExibirGraficos() {
-    var caminhoCSV = '../../dados/tabela2.csv';
+    var caminhoCSV = './dados/tabela2.csv';
     carregarDadosCSV(caminhoCSV, function(dados) {
   
         Object.keys(dados).forEach(function(perfil) {
@@ -131,5 +131,7 @@ function carregarDadosCSV(caminho, callback) {
         })
         .catch(error => console.error('Erro ao carregar dados do CSV:', error));
 }
+if (document.getElementById("divGrafico2")) {
+    carregarDadosEExibirGraficos();
+}
 
-carregarDadosEExibirGraficos();

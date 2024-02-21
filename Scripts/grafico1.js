@@ -3,7 +3,7 @@ var percentualConclusao;
 var percentualNaoConclusao;
 
 function carregarDadosCSV() {
-    fetch('../../dados/tabela1.csv')
+    fetch('./dados/tabela1.csv')
         .then(response => response.text())
         .then(data => processarDadosCSV(data));
 }
@@ -133,6 +133,8 @@ function criarGrafico1(percentualConclusao, percentualNaoConclusao) {
 
 }
 
+if (document.getElementById("divGrafico1")) {
+    carregarDadosCSV();
+}
 
-carregarDadosCSV();
 

@@ -1,6 +1,6 @@
 
 function carregarDados() {
-    fetch('../../dados/tabela3.csv')
+    fetch('./dados/tabela3.csv')
         .then(response => response.text())
         .then(data => processarDados(data));
 }
@@ -109,6 +109,9 @@ function criarGrafico3(data,maiorStatusDeEntrega) {
 }
 
 
+if (document.getElementById("divGrafico3")) {
+    carregarDados();
+}
 
-carregarDados();
+
 

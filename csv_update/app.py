@@ -1,4 +1,6 @@
 from flask import Flask, request
+import os
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
 import subprocess
 import gspread
 import pandas as pd
@@ -7,9 +9,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"/executar": {"origins": "*"}})
 
-client = gspread.service_account(filename='csv_update/credentials.json')
+client = gspread.service_account(filename='./credentials.json')
 
-@app.route('/executar', methods=['GET', 'POST'])
+
+@app.route('/Analytics_Academico/csv_update/executar', methods=['POST'])
 def executar_codigo():
     if request.method == 'POST':
         try:
@@ -24,13 +27,14 @@ def executar_codigo():
                 resultado = subprocess.check_output(['python', '-c', 'from csv_update.extrator import opcao3; print(opcao3())'])
                 return resultado
             else:
-                return "Opção inválida"
+                return "Opcao invalida"
             
         except Exception as e:
-            return f"Erro ao executar o código: {e}"
+            return f"Erro ao executar o codigo: {e}"
     else:
-        return "Método não permitido. Use POST para acessar este recurso."   
+        return "Metodo nao permitido. Use POST para acessar este recurso."   
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+   app.run(debug=True, host='0.0.0.0', port=5000)
+

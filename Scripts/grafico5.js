@@ -1,5 +1,5 @@
 function carregarDadosCSV() {
-    fetch('../../dados/tabela2.csv')
+    fetch('./dados/tabela2.csv')
         .then(response => response.text())
         .then(data => criarConteinerGrafico5(data));
 }
@@ -113,6 +113,8 @@ function criarConteinerGrafico5(datagrafico5) {
     containerGrafico5.appendChild(nomeDoPerfilGrafico5);
     containerGrafico5.appendChild(divDescricaodetalhadaGrafico5);
 }
+if (document.getElementById("divGrafico5")) {
+    carregarDadosCSV();
+}
 
 
-carregarDadosCSV();

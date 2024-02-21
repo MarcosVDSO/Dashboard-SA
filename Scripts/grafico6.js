@@ -1,5 +1,5 @@
 function carregarDadosCSV() {
-    fetch('../../dados/tabela4.csv')
+    fetch('./dados/tabela4.csv')
         .then(response => response.text())
         .then(data => criarConteinerGrafico6(data));
 }
@@ -50,8 +50,7 @@ function criarConteinerGrafico6(dataGrafico6){
     });
 
     totalAtividades = linhas.length - 1;
-    console.log(linhas)
-    console.log(statusPorCodigo)
+    
     criarGrafico6(totalAtividades, atividadesEntregues);
 }
 function criarGrafico6(totalAtividades, atividadesEntregues){
@@ -118,4 +117,7 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
     containerMenorGrafico6.appendChild(containerAtividades);
     containerGrafico6.appendChild(containerMenorGrafico6)
 }
-carregarDadosCSV();
+
+if (document.getElementById("divGrafico6")) {
+    carregarDadosCSV();
+}

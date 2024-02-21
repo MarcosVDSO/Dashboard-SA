@@ -1,5 +1,6 @@
 
-    var textoFiltro = document.createElement('p');
+function criarFiltro() {  
+   var textoFiltro = document.createElement('p');
     textoFiltro.classList.add('textoFiltro');
     textoFiltro.textContent = 'Produto';
 
@@ -53,21 +54,33 @@
     
     function enviarRequisicaoPython(selectedValue) {
         var xhr = new XMLHttpRequest();
-        var url = 'http://127.0.0.1:5000/executar'; 
+        var url = 'https://petcompufma.org/Analytics_Academico/csv_update/executar';
+
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-                    console.log('Requisição enviada com sucesso!');
-                    console.log('Resposta:', xhr.responseText);
+                    var resposta = JSON.parse(xhr.responseText);
+                    if ('result' in resposta) {
+                        console.log('Requisição enviada com sucesso!');
+                        console.log('Resposta:', resposta.result);
+                    } else if ('error' in resposta) {
+                        console.error('Erro na requisição:', resposta.error);
+                    }
                 } else {
                     console.error('Erro na requisição:', xhr.status);
                 }
             }
         };
+        
     
        var data = 'selectedValue=' + encodeURIComponent(selectedValue);
        xhr.send(data);
     }
-    
+}
+
+
+if (document.getElementById("Filtro")) {
+    criarFiltro();
+}
