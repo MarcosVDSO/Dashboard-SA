@@ -1,6 +1,6 @@
 
 function carregarDados() {
-    fetch('./dados/tabela3.csv')
+    fetch('../dados/tabela3.csv')
         .then(response => response.text())
         .then(data => processarDados(data));
 }

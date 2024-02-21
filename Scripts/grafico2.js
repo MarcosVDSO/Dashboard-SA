@@ -1,5 +1,5 @@
 function carregarDadosEExibirGraficos() {
-    var caminhoCSV = './dados/tabela2.csv';
+    var caminhoCSV = '../dados/tabela2.csv';
     carregarDadosCSV(caminhoCSV, function(dados) {
   
         Object.keys(dados).forEach(function(perfil) {
@@ -45,7 +45,7 @@ function criarConteinerEExibirGrafico(perfil, dados) {
     var divNomePerfilGrafico2 =document.createElement('div');
     divNomePerfilGrafico2.classList.add('divNomePerfilGrafico2');
     var imagemdoperfil = document.createElement('img');
-    imagemdoperfil.src = 'assets/imagemperfil.svg';  
+    imagemdoperfil.src = '../assets/imagemperfil.svg';  
     imagemdoperfil.alt = 'imagem de Perfil'; 
     imagemdoperfil.classList.add('imagemPerfil');
 

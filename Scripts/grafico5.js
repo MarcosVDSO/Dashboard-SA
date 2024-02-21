@@ -1,5 +1,5 @@
 function carregarDadosCSV() {
-    fetch('./dados/tabela2.csv')
+    fetch('../dados/tabela2.csv')
         .then(response => response.text())
         .then(data => criarConteinerGrafico5(data));
 }
@@ -76,7 +76,7 @@ function criarConteinerGrafico5(datagrafico5) {
     document.getElementById('divGrafico5').appendChild(containerGrafico5);
 
     var imagemgrafico5 = document.createElement('img');
-    imagemgrafico5.src = 'assets/perfilmaiortaxa.svg';  
+    imagemgrafico5.src = '../assets/perfilmaiortaxa.svg';  
     imagemgrafico5.alt = 'imagem'; 
     imagemgrafico5.classList.add('imagemgrafico5')
 

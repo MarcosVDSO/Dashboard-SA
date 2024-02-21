@@ -1,7 +1,7 @@
 import gspread
 import pandas as pd
 
-client = gspread.service_account(filename='csv_update/credentials.json')
+client = gspread.service_account(filename='credentials.json')
 
 def opcao1():
     geraCsv('Produto_1')
@@ -27,10 +27,10 @@ def geraCsv(planilha_nome):
         planilha_selecionada = planilha.worksheet(nome_pagina)
         dados_completos = planilha_selecionada.get_all_values()
         df = pd.DataFrame(dados_completos)
-        df.to_csv(f'dados/tabela{tabela}.csv', index=False)
-        with open(f'dados/tabela{tabela}.csv', 'r') as arquivo:
+        df.to_csv(f'../dados/tabela{tabela}.csv', index=False)
+        with open(f'../dados/tabela{tabela}.csv', 'r') as arquivo:
             linhas = arquivo.readlines()[1:]
-        with open(f'dados/tabela{tabela}.csv', 'w') as arquivo:
+        with open(f'../dados/tabela{tabela}.csv', 'w') as arquivo:
             arquivo.writelines(linhas)
 
     print(f"Dados da {planilha_nome} exportados para o arquivo CSV com sucesso.")

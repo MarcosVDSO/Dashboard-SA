@@ -4,7 +4,7 @@ function criarGrafico7(){
     document.getElementById('divGrafico7').appendChild(containerGrafico7);
 
     var imagemgrafico7 = document.createElement('img');
-    imagemgrafico7.src = 'assets/perfilmaiortaxa.svg';  
+    imagemgrafico7.src = '../assets/perfilmaiortaxa.svg';  
     imagemgrafico7.alt = 'imagem'; 
     imagemgrafico7.classList.add('imagemgrafico7')
 

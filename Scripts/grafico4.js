@@ -1,5 +1,5 @@
 function carregarDadosEExibirGraficos() {
-    var caminhoCSV = './dados/tabela2.csv';
+    var caminhoCSV = '../dados/tabela2.csv';
     carregarDadosCSV(caminhoCSV, function(dados) {
   
         Object.keys(dados).forEach(function(perfil) {
@@ -22,7 +22,7 @@ function  criarGrafico4(){
     tituloGrafico4.textContent = 'Entrega de Atividade Mais Eficiente';
 
     var imagemgrafico4 = document.createElement('img');
-    imagemgrafico4.src = 'assets/imagemgrafico4.svg';  
+    imagemgrafico4.src = '../assets/imagemgrafico4.svg';  
     imagemgrafico4.alt = 'imagem'; 
     imagemgrafico4.classList.add('imagemgrafico4')
 

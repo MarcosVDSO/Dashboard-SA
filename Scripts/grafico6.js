@@ -1,5 +1,5 @@
 function carregarDadosCSV() {
-    fetch('./dados/tabela4.csv')
+    fetch('../dados/tabela4.csv')
         .then(response => response.text())
         .then(data => criarConteinerGrafico6(data));
 }
@@ -65,7 +65,7 @@ function criarGrafico6(totalAtividades, atividadesEntregues){
     document.getElementById('divGrafico6').appendChild(containerGrafico6);
 
     var imagemgrafico6 = document.createElement('img');
-    imagemgrafico6.src = 'assets/quantidadedeatividade.svg';  
+    imagemgrafico6.src = '../assets/quantidadedeatividade.svg';  
     imagemgrafico6.alt = 'imagem'; 
     imagemgrafico6.classList.add('imagemgrafico6')
 

@@ -54,8 +54,8 @@ function criarFiltro() {
     
     function enviarRequisicaoPython(selectedValue) {
         var xhr = new XMLHttpRequest();
-        var url = 'https://petcompufma.org/Analytics_Academico/csv_update/executar';
-
+        var url = 'http://127.0.0.1:5000/executar'; 
+    
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
@@ -74,10 +74,10 @@ function criarFiltro() {
             }
         };
         
-    
-       var data = 'selectedValue=' + encodeURIComponent(selectedValue);
-       xhr.send(data);
+        var data = 'selectedValue=' + encodeURIComponent(selectedValue);
+        xhr.send(data);
     }
+    
 }
 
 
